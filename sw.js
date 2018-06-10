@@ -1,6 +1,7 @@
 let CACHE = 'mws-stage1-cache-v3';
 let urlsToCache = [
   '/',
+  '/mws-stage-1/',
   '/restaurant.html',
   'css/styles.css',
   'js/main.js',
