@@ -12,7 +12,7 @@ class DBHelper {
     // return `http://localhost:${port}/data/restaurants.json`;
     // return '/data/restaurants.json';
     // return 'https://motosharpley.github.io/mws-stage-1/data/restaurants.json';
-    return `http://motosharpley.github.io/mws-stage-1:${port}/data/restaurants.json`;
+    return `https://motosharpley.github.io/mws-stage-1:${port}/data/restaurants.json`;
   }
 
   /**
