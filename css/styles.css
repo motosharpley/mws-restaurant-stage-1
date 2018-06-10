@@ -113,7 +113,7 @@ nav h1 a {
   list-style: outside none none;
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, 280px);
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 }
