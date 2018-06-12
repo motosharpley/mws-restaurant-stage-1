@@ -1,3 +1,4 @@
+// set up the cache
 let CACHE = 'mws-stage1-cache-v1';
 let urlsToCache = [
   '/',
@@ -16,7 +17,27 @@ let urlsToCache = [
   'img/7.jpg',
   'img/8.jpg',
   'img/9.jpg',
-  'img/10.jpg'
+  'img/10.jpg',
+  'img/large-1.jpg',
+  'img/large-2.jpg',
+  'img/large-3.jpg',
+  'img/large-4.jpg',
+  'img/large-5.jpg',
+  'img/large-6.jpg',
+  'img/large-7.jpg',
+  'img/large-8.jpg',
+  'img/large-9.jpg',
+  'img/large-10.jpg',
+  'img/med-1.jpg',
+  'img/med-2.jpg',
+  'img/med-3.jpg',
+  'img/med-4.jpg',
+  'img/med-5.jpg',
+  'img/med-6.jpg',
+  'img/med-7.jpg',
+  'img/med-8.jpg',
+  'img/med-9.jpg',
+  'img/med-10.jpg'
 ];
 
 self.addEventListener('install', function(event) {
@@ -42,34 +63,16 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-self.addEventListener('fetch', event => {
-  // Let the browser do its default thing
-  // for non-GET requests.
-  if (event.request.method != 'GET') return;
-
-  // const requestUrl = new URL(event.request.url);
-
-  // if (requestUrl.origin === location.origin) {
-  //   if (requestUrl.pathname === '/') {
-  //     event.respondWith(caches.match('/restaurant'))
-  //   }
-  // }
-
-  // Prevent the default, and handle the request ourselves.
-  event.respondWith(async function() {
-    // Try to get the response from a cache.
-    const cache = await caches.open(CACHE);
-    const cachedResponse = await cache.match(event.request);
-
-    if (cachedResponse) {
-      // If we found a match in the cache, return it, but also
-      // update the entry in the cache in the background.
-      event.waitUntil(cache.add(event.request));
-      return cachedResponse;
-    }
-
-    // If we didn't find a match in the cache, use the network.
-    return fetch(event.request);
-  }());
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(resp) {
+      return resp || fetch(event.request).then(function(response) {
+        return caches.open(CACHE).then(function(cache) {
+          cache.put(event.request, response.clone());
+          return response;
+        });  
+      });
+    })
+  );
 });
 
