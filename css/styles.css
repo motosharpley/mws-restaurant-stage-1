@@ -95,7 +95,7 @@ nav h1 a {
   height: 2rem;
   letter-spacing: 0;
   margin: 20px 0 20px 19px;
-  width: 280px;
+  width: 200px;
 }
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
@@ -103,7 +103,7 @@ nav h1 a {
   list-style: outside none none;
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   padding-right: 40px;
