@@ -87,7 +87,7 @@ nav h1 a {
   border:  3px solid #7dc6f7;
 }
 .filter-options label {
-  display: none;
+  display: hidden;
 }
 .filter-options select {
   background-color: white;
