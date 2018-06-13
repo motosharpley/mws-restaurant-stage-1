@@ -1,5 +1,5 @@
 // set up the cache
-let CACHE = 'mws-stage1-cache-v1';
+let CACHE = 'mws-stage1-cache-v2';
 let urlsToCache = [
   '/',
   '/restaurant.html',
