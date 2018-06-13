@@ -3,7 +3,9 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1f58"/>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="/manifest.json">
   <title>Restaurant Reviews</title>
 </head>
 
@@ -20,12 +22,12 @@
     </section>
     <section>
       <div class="filter-options">
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+        <select id="neighborhoods-select" aria-label="neighborhoods" name="neighborhoods" onchange="updateRestaurants()">
           <label aria-label="Filter Neighborhoods" for="neighborhoods">Filter Neighborhoods</label>
           <option value="all">All Neighborhoods</option>
         </select>
 
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+        <select id="cuisines-select" aria-label="cuisines" name="cuisines" onchange="updateRestaurants()">
           <label aria-label="Filter Cuisines" for="cuisines">Filter Cuisines</label>
           <option value="all">All Cuisines</option>
         </select>
@@ -33,20 +35,7 @@
       <ul id="restaurants-list"></ul>
     </section>
   </main>
-  <script>
-    // Register Service Worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('sw.js').then(function(registration) {
-          // Registration was successful
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-          // registration failed :(
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
-    }
-  </script>
+
   <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap"></script>
