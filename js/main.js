@@ -158,7 +158,6 @@ createRestaurantHTML = (restaurant) => {
   image.className = 'restaurant-img';
   image.src = `/img/${imgUrl}`;
   image.srcset = `/img/${imgUrl} 300w, /img/med-${imgUrl} 600w, /img/large-${imgUrl} 800w`;
-  // image.sizes = "(max-width: 300px), (max-width: 600px), 800px";
   image.alt = `A sample view of ${restaurant.name} that serves ${restaurant.cuisine_type} cuisine.`;
   li.append(image);
 
